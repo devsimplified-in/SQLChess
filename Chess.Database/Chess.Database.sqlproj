@@ -13,8 +13,8 @@
     </RootPath>
     <RootNamespace>Chess.Database</RootNamespace>
     <AssemblyName>Chess.Database</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
-    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +58,24 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables\" />
+    <Folder Include="Views\" />
+    <Folder Include="Functions\" />
+    <Folder Include="Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Game.sql" />
+    <Build Include="Tables\GamePlayer.sql" />
+    <Build Include="Tables\GamePlayerPiece.sql" />
+    <Build Include="Tables\GamePlayerBoard.sql" />
+    <Build Include="Tables\GameHistory.sql" />
+    <Build Include="Tables\BoardPieceConfig.sql" />
+    <Build Include="Tables\PieceIcon.sql" />
+    <Build Include="Tables\Piece.sql" />
+    <Build Include="Tables\Player.sql" />
+    <Build Include="Tables\Board.sql" />
+    <Build Include="Views\AllMoves.sql" />
+    <Build Include="Functions\GetAllMovesByBoardID.sql" />
+    <Build Include="Stored Procedures\USPCleanandLoadData.sql" />
   </ItemGroup>
 </Project>
